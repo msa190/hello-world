@@ -11,7 +11,7 @@ class Vector():
 		return len(self.v)
 	
 	def __getitem__(self, key):
-		return(self.v[key])
+		return self.v[key]
 
 	def __setitem__(self, key, value):
 		self.v[key] = value
@@ -24,8 +24,8 @@ class Vector():
 			u[i] = w[i]+ u[i]
 		return u
 	def __repr__(self):
-		return(self.v)
+		return repr(self.v)
 			 
 a = Vector([5,3,4])
 b = Vector([1,2,4])
-	print(self.v)
+print(a+b)
