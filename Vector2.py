@@ -68,15 +68,15 @@ class Vector():
 		return repr(self.v)
 #x_product ainda não testado
 def x_product(w=[],v=[]):
-	a = []
-	b = []
-	if len(w) == 2:
-		for i,j in w:
-			a[j] = i
-		a[3] = 0.0
-	if len(v) == 2:
-		for i, j in v:
-			b[j] = i
-		b[3] = 0.0
+	a = w
+	b = v
+	#if len(w) == 2:
+	#	for i,j in w:
+	#		a[j] = i
+	#	a[3] = 0.0
+	#if len(v) == 2:
+	#	for i, j in v:
+	#		b[j] = i
+	#	b[3] = 0.0
 	c = [a[1]*b[2]-b[1]*a[2],a[2]*b[0]-b[2]*a[0],a[0]*b[1]-b[0]*a[1]]
 	return c
