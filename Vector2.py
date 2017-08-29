@@ -1,4 +1,5 @@
 #encoding: utf-8
+#import copy
 class Vector():
 	v = []
 	def __init__(self, w=[]):
@@ -18,19 +19,23 @@ class Vector():
 		self.v[key] = value
 	#soma
 	def __add__(self, w):
+		u = self
 		if(w.__class__.__name__!= 'Vector'):
 			raise
-		u = self
-		k=[0.0 for i in range(u)]
+		#u = copy.deepcopy(self)		
+		k = [0.0 for i in range(4)]
+			
 		for i in range(len(u)):
 			k[i] = w[i]+ u[i]
+			#u[i] = w[i]+ u[i]
 		return k
 	#subtracao
 	def __sub__(self,w):
+		u = self
 		if(w.__class__.__name__!= 'Vector'):
 			raise
-		u = self
-		k =[0.0 for i in range(u)]
+			#else raise		
+		k = [0.0 for i in u]
 		for i in range(len(u)):
 			k[i]= u[i]-w[i]
 		return k
@@ -50,13 +55,28 @@ class Vector():
 	def escalar(self,w=[]):
 		soma = 0.0
 		u = self
+		k = [0.0 for i in u]
 		#if(len(u)!=len(w)):
 		#	raise
 		for i in range(len(u)):
-			u[i] = u[i]*w[i]
-		for i in range(len(u)):
-			soma = soma + u[i]
+			k[i] = u[i]*w[i]
+		for i in range(len(k)):
+			soma = soma + k[i]
 		return soma
 		
 	def __repr__(self):
-		return repr(self.v)	
+		return repr(self.v)
+#x_product ainda não testado
+def x_product(w=[],v=[]):
+	a = []
+	b = []
+	if len(w) == 2:
+		for i,j in w:
+			a[j] = i
+		a[3] = 0.0
+	if len(v) == 2:
+		for i, j in v:
+			b[j] = i
+		b[3] = 0.0
+	c = [a[1]*b[2]-b[1]*a[2],a[2]*b[0]-b[2]*a[0],a[0]*b[1]-b[0]*a[1]]
+	return c
